@@ -26,7 +26,7 @@ public class KumandraCommand implements CommandExecutor {
     static KumandrasEconomy plugin;
     private final DecimalFormat fmt = new DecimalFormat("###,###,###,###.##");
     private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
-    public KumandraCommand(KumandrasEconomy main){
+    public KumandraCommand(Economy main){
         plugin = main;
     }
 
