@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.Version;
+package me.jaymar921.economy.Version;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,3 +31,5 @@ public class UpdateChecker {
         });
     }
 }
+
+
