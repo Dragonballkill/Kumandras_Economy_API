@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.conomy.InventoryGUI.enums.JobList;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.PlayerStatus;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class Fisherman extends Jobs implements Listener {
 
-    public Fisherman(KumandrasEconomy main){
+    public Fisherman(conomy main){
         super(main);
     }
 
@@ -70,3 +70,6 @@ public class Fisherman extends Jobs implements Listener {
         else return material.equals(Material.TROPICAL_FISH);
     }
 }
+
+
+
