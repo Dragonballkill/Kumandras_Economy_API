@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI;
+package me.jaymar921.economy.InventoryGUI;
 
-import me.jaymar921.kumandraseconomy.ItemHandler.PlayerHeads;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.ItemHandler.PlayerHeads;
+import me.jaymar921.economy.Economy;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,7 +18,7 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.*;
 
 public class TradingGUI {
-    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
+    private final Map<String,String> lang = Economy.getPlugin(Economy.class).getDataHandler().getLanguageData();
     public Inventory createTradeInventory(String trader, String buyer){
         Inventory inv = Bukkit.createInventory(null, 54, ChatColor.DARK_GREEN+"Trading Session ID: "+new Random().nextInt(1000));
 
@@ -79,13 +79,13 @@ public class TradingGUI {
         item = new ItemStack(Material.GOLD_INGOT);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GOLD+lang.get("IncBy")+" "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
+        meta.setDisplayName(ChatColor.GOLD+lang.get("IncBy")+" "+Economy.getPlugin(Economy.class).getRegistryConfiguration().tradingIncrease+Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_prefix);
         item.setItemMeta(meta);
 
         inv.setItem(38, item);
         inv.setItem(42, item);
 
-        meta.setDisplayName(ChatColor.GOLD+lang.get("DecBy")+" "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
+        meta.setDisplayName(ChatColor.GOLD+lang.get("DecBy")+" "+Economy.getPlugin(Economy.class).getRegistryConfiguration().tradingIncrease+Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_prefix);
         item.setItemMeta(meta);
 
         inv.setItem(37, item);
@@ -96,7 +96,7 @@ public class TradingGUI {
         assert meta != null;
 
         meta.setDisplayName(ChatColor.LIGHT_PURPLE+lang.get("Trade")+" "+trader+" "+lang.get("Items"));
-        meta.setLore(Arrays.asList(ChatColor.GREEN+"for "+ChatColor.GOLD+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+ KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix, ChatColor.RED+lang.get("NotSet")));
+        meta.setLore(Arrays.asList(ChatColor.GREEN+"for "+ChatColor.GOLD+Economy.getPlugin(Economy.class).getRegistryConfiguration().tradingIncrease+ Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_prefix, ChatColor.RED+lang.get("NotSet")));
         item.setItemMeta(meta);
 
         inv.setItem(39, item);
@@ -113,7 +113,7 @@ public class TradingGUI {
         meta.setDisplayName(ChatColor.GREEN+lang.get("TradeGuide4"));
         meta.setLore(null);
 
-        NamespacedKey itemdata = new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "itemData");
+        NamespacedKey itemdata = new NamespacedKey(Economy.getPlugin(Economy.class), "itemData");
         meta.getPersistentDataContainer().set(itemdata, PersistentDataType.INTEGER, new Random().nextInt(100000));
         item.setItemMeta(meta);
         inv.setItem(48, item);
@@ -165,3 +165,6 @@ public class TradingGUI {
     }
 
 }
+
+
+
