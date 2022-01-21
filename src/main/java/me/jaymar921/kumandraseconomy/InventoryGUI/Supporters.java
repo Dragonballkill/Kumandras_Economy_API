@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI;
+package me.jaymar921.economy.InventoryGUI;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
@@ -151,3 +151,6 @@ public class Supporters {
         return head;
     }
 }
+
+
+
