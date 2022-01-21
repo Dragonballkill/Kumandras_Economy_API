@@ -1,9 +1,9 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
-import me.jaymar921.kumandraseconomy.entity.EntityTypeCheck;
+import me.jaymar921.conomy.InventoryGUI.enums.JobList;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.PlayerStatus;
+import me.jaymar921.conomy.entity.EntityTypeCheck;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,7 +12,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 
 public class Hunter extends Jobs implements Listener {
 
-    public Hunter(KumandrasEconomy main){
+    public Hunter(conomy main){
         super(main);
     }
 
@@ -38,3 +38,6 @@ public class Hunter extends Jobs implements Listener {
     }
 
 }
+
+
+
