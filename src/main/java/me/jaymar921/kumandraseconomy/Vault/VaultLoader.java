@@ -1,18 +1,18 @@
-package me.jaymar921.kumandraseconomy.Vault;
+package me.jaymar921.economy.Vault;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.EconomyImplementer;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.economy.EconomyImplementer;
 import net.milkbowl.vault.economy.Economy;
 
 public class VaultLoader {
 
-    KumandrasEconomy plugin;
+    Economy plugin;
 
     private Vault vault;
     private VaultSupport vaultSupport;
 
 
-    public VaultLoader(KumandrasEconomy plugin){
+    public VaultLoader(Economy plugin){
         this.plugin = plugin;
     }
 
@@ -34,3 +34,5 @@ public class VaultLoader {
 
     public VaultSupport getVaultSupport(){return vaultSupport;}
 }
+
+
