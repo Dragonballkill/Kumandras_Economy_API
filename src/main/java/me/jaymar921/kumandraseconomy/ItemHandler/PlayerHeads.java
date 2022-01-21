@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.ItemHandler;
+package me.jaymar921.economy.ItemHandler;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -31,3 +31,6 @@ public class PlayerHeads {
         return head;
     }
 }
+
+
+
