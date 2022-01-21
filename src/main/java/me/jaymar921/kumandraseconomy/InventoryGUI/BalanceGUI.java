@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI;
+package me.jaymar921.economy.InventoryGUI;
 
-import me.jaymar921.kumandraseconomy.ItemHandler.PlayerHeads;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.economy.ItemHandler.PlayerHeads;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.economy.PlayerStatus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -20,9 +20,9 @@ import java.util.Map;
 
 public class BalanceGUI {
 
-    private final String currency_prefix = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix;
+    private final String currency_prefix = Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_prefix;
     private final DecimalFormat fmt = new DecimalFormat("###,###,###,###.##");
-    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
+    private final Map<String,String> lang = Economy.getPlugin(Economy.class).getDataHandler().getLanguageData();
 
     public Inventory BalanceInventory(Player player, PlayerStatus status, List<String> plugins){
         Inventory gui = Bukkit.createInventory(null, 27, ChatColor.BLUE+""+ChatColor.BOLD+player.getName()+"'s "+lang.get("Account"));
@@ -62,7 +62,7 @@ public class BalanceGUI {
 
         gui.setItem(11, item);
 
-        if(KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().separate_economy) {
+        if(Economy.getPlugin(Economy.class).getRegistryConfiguration().separate_economy) {
             item = new ItemStack(Material.PAPER);
             meta = item.getItemMeta();
             assert meta != null;
@@ -72,9 +72,9 @@ public class BalanceGUI {
             meta.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + lang.get("Exchange"));
             lore = new ArrayList<>();
             lore.add(ChatColor.GREEN + "" + ChatColor.BOLD + lang.get("CurrencyStatus"));
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣1.00 "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().foreign_economy+" "+lang.get("Money"));
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣1.00 "+Economy.getPlugin(Economy.class).getRegistryConfiguration().foreign_economy+" "+lang.get("Money"));
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "    ↓");
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣"+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy + " "+ lang.get("KDEco") + " "+lang.get("Money"));
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣"+Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_economy + " "+ lang.get("KDEco") + " "+lang.get("Money"));
             meta.setLore(lore);
             item.setItemMeta(meta);
 
@@ -108,3 +108,6 @@ public class BalanceGUI {
 
 
 }
+
+
+
