@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.inventory.ItemStack;
@@ -75,3 +75,5 @@ public class QuestData implements ConfigurationSerializable {
         );
     }
 }
+
+
