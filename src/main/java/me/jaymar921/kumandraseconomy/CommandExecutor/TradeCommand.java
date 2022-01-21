@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.CommandExecutor;
+package me.jaymar921.economy.CommandExecutor;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -9,8 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class TradeCommand implements CommandExecutor {
-    static KumandrasEconomy plugin;
-    public TradeCommand(KumandrasEconomy main){
+    static Economy plugin;
+    public TradeCommand(Economy main){
         plugin = main;
     }
 
@@ -54,3 +54,6 @@ public class TradeCommand implements CommandExecutor {
         return false;
     }
 }
+
+
+
