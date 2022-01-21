@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.conomy.InventoryGUI.enums.JobList;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.PlayerStatus;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class Lumberjack extends Jobs implements Listener {
 
-    public Lumberjack(KumandrasEconomy main){
+    public Lumberjack(conomy main){
         super(main);
     }
 
@@ -107,3 +107,5 @@ public class Lumberjack extends Jobs implements Listener {
         else return material.equals(Material.DARK_OAK_SAPLING);
     }
 }
+
+
