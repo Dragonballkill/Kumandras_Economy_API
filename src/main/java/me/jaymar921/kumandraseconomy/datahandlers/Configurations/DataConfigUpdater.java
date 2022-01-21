@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.datahandlers.Configurations;
+package me.jaymar921.economy.datahandlers.Configurations;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -30,7 +30,7 @@ public class DataConfigUpdater {
             wr.write(sb.toString());
             wr.close();
         }catch(Exception e) {
-            KumandrasEconomy.getPlugin(KumandrasEconomy.class).getLogger().info("File not found :/");
+            Economy.getPlugin(Economy.class).getLogger().info("File not found :/");
         }
 
     }
@@ -92,8 +92,10 @@ public class DataConfigUpdater {
             wr.write(sb.toString());
             wr.close();
         }catch(Exception e) {
-            KumandrasEconomy.getPlugin(KumandrasEconomy.class).getLogger().info("File not found :/");
+            Economy.getPlugin(Economy.class).getLogger().info("File not found :/");
         }
 
     }
 }
+
+
