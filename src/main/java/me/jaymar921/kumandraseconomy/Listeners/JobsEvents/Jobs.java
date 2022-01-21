@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.entity.EntityTypeCheck;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.entity.EntityTypeCheck;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class Jobs {
 
-    static KumandrasEconomy main;
+    static conomy main;
     static Map<Player, Double> amount;
     static Map<Player, Integer> counter;
     static Map<Player, Integer>lumberStat;
@@ -28,7 +28,7 @@ public abstract class Jobs {
     public EntityTypeCheck mob;
     static final DecimalFormat fmt = new DecimalFormat("#,###,###.##");
 
-    public Jobs(KumandrasEconomy main){
+    public Jobs(conomy main){
         Jobs.main = main;
         amount = new ConcurrentHashMap<>();
         counter = new ConcurrentHashMap<>();
@@ -128,3 +128,6 @@ public abstract class Jobs {
         villagerInRadius.add(player);
     }
 }
+
+
+
