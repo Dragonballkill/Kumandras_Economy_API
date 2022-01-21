@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.Vault;
+package me.jaymar921.economy.Vault;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,16 +11,16 @@ public class VaultSupport {
     public Economy economy;
     public String EconomyName;
 
-    KumandrasEconomy plugin;
+    Economy plugin;
 
-    public VaultSupport(KumandrasEconomy plugin) {
+    public VaultSupport(Economy plugin) {
         this.plugin = plugin;
         StartVault();
     }
 
     public void StartVault() {
         if(registerVault())
-            plugin.getLogger().info(ChatColor.GREEN+"Kumandra's Economy was set to secondary Economy");
+            plugin.getLogger().info(ChatColor.GREEN+" Economy was set to secondary Economy");
     }
 
     public boolean registerVault() {
@@ -46,3 +46,5 @@ public class VaultSupport {
         return (economy!=null);
     }
 }
+
+
