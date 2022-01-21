@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.economy.PlayerStatus;
 import net.md_5.bungee.api.ChatColor;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class MySQLHandler {
     static Connection connection;
     static boolean connected;
-    public static boolean loadData(KumandrasEconomy main){
+    public static boolean loadData(Economy main){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             main.getLogger().info(ChatColor.YELLOW+"Connecting to database...");
@@ -54,7 +54,7 @@ public class MySQLHandler {
         return false;
     }
 
-    private static void createDB(KumandrasEconomy main, String url, String database, String user, String password){
+    private static void createDB(Economy main, String url, String database, String user, String password){
         try{
             connection = DriverManager.getConnection(url,user,password);
             String query = "create database "+database;
@@ -79,7 +79,7 @@ public class MySQLHandler {
         main.getLogger().info(ChatColor.YELLOW+"Created and implementing Database ["+ChatColor.DARK_GREEN+database+ChatColor.YELLOW+"]");
     }
 
-    private static void loadDB(KumandrasEconomy main, String url, String database, String user, String password){
+    private static void loadDB(Economy main, String url, String database, String user, String password){
         try{
             connection = DriverManager.getConnection(url+database,user,password);
             String query = "select * from player_data";
@@ -108,7 +108,7 @@ public class MySQLHandler {
         main.getLogger().info(ChatColor.YELLOW+"Loaded Database ["+ChatColor.DARK_GREEN+database+ChatColor.YELLOW+"]");
     }
 
-    public static boolean saveData(KumandrasEconomy main){
+    public static boolean saveData(Economy main){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             main.getLogger().info(ChatColor.YELLOW+"Connecting to database...");
@@ -145,7 +145,7 @@ public class MySQLHandler {
         }
         return false;
     }
-    private static void saveDB(KumandrasEconomy main, String url, String database, String user, String password){
+    private static void saveDB(Economy main, String url, String database, String user, String password){
         try{
             connection = DriverManager.getConnection(url+database,user,password);
             String query = "";
@@ -186,3 +186,5 @@ public class MySQLHandler {
         main.getLogger().info(ChatColor.YELLOW+"Saved Database ["+ChatColor.DARK_GREEN+database+ChatColor.YELLOW+"]");
     }
 }
+
+
