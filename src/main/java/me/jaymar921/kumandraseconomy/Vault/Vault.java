@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.Vault;
+package me.jaymar921.conomy.Vault;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.EconomyImplementer;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.EconomyImplementer;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,10 +9,10 @@ import org.bukkit.plugin.ServicePriority;
 
 public class Vault {
 
-    KumandrasEconomy plugin;
+    conomy plugin;
 
     private Economy economy;
-    public Vault(KumandrasEconomy plugin){
+    public Vault(conomy plugin){
         this.plugin = plugin;
     }
 
@@ -20,10 +20,13 @@ public class Vault {
         economy = new EconomyImplementer(plugin);
         Bukkit.getServicesManager().register(Economy.class, economy , plugin, ServicePriority.Normal);
         plugin.getLogger().info(ChatColor.GREEN+"Vault API hooked");
-        plugin.getLogger().info(ChatColor.GREEN+"Kumandra's Economy was set to primary Economy");
+        plugin.getLogger().info(ChatColor.GREEN+"Economy was set to primary Economy");
     }
 
     public void unHook(){
         Bukkit.getServicesManager().unregister(Economy.class, economy);
     }
 }
+
+
+
