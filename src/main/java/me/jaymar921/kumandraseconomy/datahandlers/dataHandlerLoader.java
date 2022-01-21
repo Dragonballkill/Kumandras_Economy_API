@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.PlayerStatusDataHandler;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.Configurations.PlayerStatusDataHandler;
+import me.jaymar921.economy.economy.PlayerStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class dataHandlerLoader {
 
-    KumandrasEconomy plugin;
+    Economy plugin;
     PlayerStatusDataHandler playerData;
 
-    public dataHandlerLoader(KumandrasEconomy plugin){
+    public dataHandlerLoader(Economy plugin){
         this.plugin = plugin;
         playerData = new PlayerStatusDataHandler(plugin);
     }
@@ -44,3 +44,5 @@ public class dataHandlerLoader {
         playerData.saveConfig();
     }
 }
+
+
