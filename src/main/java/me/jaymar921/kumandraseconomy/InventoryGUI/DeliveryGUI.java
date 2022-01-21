@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI;
+package me.jaymar921.economy.InventoryGUI;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.DeliveryDataHandler;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.DeliveryDataHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,8 +18,8 @@ import java.util.Map;
 public class DeliveryGUI {
 
     DeliveryDataHandler deliveryHandler;
-    String kumandra_prefix = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix;
-    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
+    String _prefix = Economy.getPlugin(Economy.class).getRegistryConfiguration().currency_prefix;
+    private final Map<String,String> lang = Economy.getPlugin(Economy.class).getDataHandler().getLanguageData();
     public DeliveryGUI(DeliveryDataHandler deliveryHandler){
         this.deliveryHandler = deliveryHandler;
     }
@@ -47,7 +47,7 @@ public class DeliveryGUI {
         lores.add(" ");
         lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"5");
         lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_price()+_prefix);
         lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
@@ -63,7 +63,7 @@ public class DeliveryGUI {
         lores.add(" ");
         lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"10");
         lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_price()+_prefix);
         lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
@@ -79,7 +79,7 @@ public class DeliveryGUI {
         lores.add(" ");
         lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"10");
         lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_price()+_prefix);
         lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
@@ -95,7 +95,7 @@ public class DeliveryGUI {
         lores.add(" ");
         lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"15");
         lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_price()+_prefix);
         lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
@@ -193,3 +193,6 @@ public class DeliveryGUI {
     }
 
 }
+
+
+
