@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.CustomQuest;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.QuestConfiguration;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.Configurations.CustomQuest;
+import me.jaymar921.economy.datahandlers.Configurations.QuestConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -17,11 +17,11 @@ public class QuestDataHandler {
     private List<QuestData> questData;
     private boolean hasAnimalQuest = false;
     private boolean hasVillagerQuest = false;
-    public QuestDataHandler(KumandrasEconomy main){
+    public QuestDataHandler(Economy main){
         questData = new LinkedList<>();
         questConfiguration = new QuestConfiguration(main);
         if(main.getVersion().support_1_17()){
-            main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadData()+ "] Kumandra's Economy Quests");
+            main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadData()+ "] Economy Quests");
             loadQuests();
             if(Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments")!=null){
                 if(!Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments").getDescription().getAuthors().contains("JayMar921"))
@@ -67,3 +67,5 @@ public class QuestDataHandler {
 
 
 }
+
+
