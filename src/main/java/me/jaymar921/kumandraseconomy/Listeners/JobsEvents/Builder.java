@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.economy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.economy.InventoryGUI.enums.JobList;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.economy.PlayerStatus;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -10,7 +10,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class Builder extends Jobs implements Listener {
 
-    public Builder(KumandrasEconomy main){
+    public Builder(Economy main){
         super(main);
     }
 
@@ -45,3 +45,6 @@ public class Builder extends Jobs implements Listener {
         }
     }
 }
+
+
+
