@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI;
+package me.jaymar921.economy.InventoryGUI;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LanguageConfig;
-import me.jaymar921.kumandraseconomy.datahandlers.RegistryConfiguration;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.Configurations.LanguageConfig;
+import me.jaymar921.economy.datahandlers.RegistryConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -22,14 +22,14 @@ public class JobsGUI {
     DecimalFormat fmt = new DecimalFormat("#.##");
     private final Map<String,String> lang;
     public JobsGUI(){
-        KumandrasEconomy main = KumandrasEconomy.getPlugin(KumandrasEconomy.class);
+        Economy main = Economy.getPlugin(Economy.class);
         lang = main.getDataHandler().getLanguageData();
         c = main.getRegistryConfiguration().currency_prefix;
         r = main.getRegistryConfiguration();
     }
 
     public Inventory joinJobUI(){
-        Inventory inventory = Bukkit.createInventory(null, 27, ChatColor.DARK_BLUE+"   "+ChatColor.BOLD+"["+ChatColor.DARK_PURPLE+""+ChatColor.BOLD+"Kumandra's Jobs list"+ChatColor.DARK_BLUE+""+ChatColor.BOLD+"]");
+        Inventory inventory = Bukkit.createInventory(null, 27, ChatColor.DARK_BLUE+"   "+ChatColor.BOLD+"["+ChatColor.DARK_PURPLE+""+ChatColor.BOLD+"'s Jobs list"+ChatColor.DARK_BLUE+""+ChatColor.BOLD+"]");
 
         ItemStack item = new ItemStack(Material.WHITE_STAINED_GLASS_PANE);
         ItemMeta meta = item.getItemMeta();
@@ -114,7 +114,7 @@ public class JobsGUI {
         meta = item.getItemMeta();
         assert meta != null;
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        meta.setDisplayName(ChatColor.DARK_BLUE+""+ChatColor.BOLD+"Kumandra's Economy");
+        meta.setDisplayName(ChatColor.DARK_BLUE+""+ChatColor.BOLD+"'s Economy");
         meta.setLore(Arrays.asList(
                 ChatColor.LIGHT_PURPLE+"Made by: "+ChatColor.YELLOW+""+ChatColor.BOLD+"JayMar921",
                 ChatColor.RED+"Youtube: "+ChatColor.YELLOW+""+ChatColor.BOLD+"JayMar921",
@@ -126,3 +126,6 @@ public class JobsGUI {
         return  inventory;
     }
 }
+
+
+
