@@ -1,10 +1,10 @@
-package me.jaymar921.kumandraseconomy.CommandExecutor;
+package me.jaymar921.economy.CommandExecutor;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.BalanceGUI;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.QuestData;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
-import me.jaymar921.kumandraseconomy.economy.ShopHandler;
+import me.jaymar921.economy.InventoryGUI.BalanceGUI;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.QuestData;
+import me.jaymar921.economy.economy.PlayerStatus;
+import me.jaymar921.seconomy.economy.ShopHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -21,27 +21,27 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class KumandraCommand implements CommandExecutor {
+public class Command implements CommandExecutor {
 
-    static KumandrasEconomy plugin;
+    static Economy plugin;
     private final DecimalFormat fmt = new DecimalFormat("###,###,###,###.##");
-    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
-    public KumandraCommand(Economy main){
+    private final Map<String,String> lang = Economy.getPlugin(Economy.class).getDataHandler().getLanguageData();
+    public Command(Economy main){
         plugin = main;
     }
 
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-        if(label.equalsIgnoreCase("Kumandra") || label.equalsIgnoreCase("kd")){
+        if(label.equalsIgnoreCase("cookies") || label.equalsIgnoreCase("Cookies")){
             if(sender instanceof Player){
                 Player player = (Player) sender;
 
-                if(player.hasPermission("kumandraseconomy.kumandra")){
+                if(player.hasPermission("economy")){
 
                     if(args.length>0){
                         if(args[0].equalsIgnoreCase("balance")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.balance")){
+                            if(player.hasPermission("economy.balance")){
                                 //player.sendMessage("You just opened your balance");
                                 //check if player has data
                                 if(!plugin.getDataHandler().getStatusHolder().containsKey(player.getUniqueId().toString())){
@@ -56,7 +56,7 @@ public class KumandraCommand implements CommandExecutor {
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("economy")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.economy")){
+                            if(player.hasPermission("economy.economy")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
                                     String playername = args[1];
@@ -276,7 +276,7 @@ public class KumandraCommand implements CommandExecutor {
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("pay")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.pay")){
+                            if(player.hasPermission("economy.pay")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
                                     String playername = args[1];
@@ -344,7 +344,7 @@ public class KumandraCommand implements CommandExecutor {
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("trade")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.trade")){
+                            if(player.hasPermission("economy.trade")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
                                     String playername = args[1];
@@ -380,7 +380,7 @@ public class KumandraCommand implements CommandExecutor {
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("deliver")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.deliver")){
+                            if(player.hasPermission("economy.deliver")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
                                     String playername = args[1];
@@ -413,7 +413,7 @@ public class KumandraCommand implements CommandExecutor {
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("jobs")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.job")) {
+                            if(player.hasPermission("economy.job")) {
                                 player.openInventory(plugin.getJobsGUI());
                                 return true;
                             } else{
@@ -431,10 +431,10 @@ public class KumandraCommand implements CommandExecutor {
                                 }
                             return false;
                         }else if(args[0].equalsIgnoreCase("shops")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.shop")){
+                            if(player.hasPermission("economy.shop")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
-                                    if(player.hasPermission("kumandraseconomy.kumandra.shopAdmin")) {
+                                    if(player.hasPermission("economy.shopAdmin")) {
                                         if (args[1].equalsIgnoreCase("Create")) {
                                             if(args.length>2){
                                                 String shopname = args[2];
@@ -466,7 +466,7 @@ public class KumandraCommand implements CommandExecutor {
                                                                         return true;
                                                                     }
                                                             player.sendMessage(ChatColor.DARK_AQUA+"You must be 2 blocks near a shop to use this command");
-                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/kumandra Shop Create"+ChatColor.DARK_AQUA+" if you haven't created a shop");
+                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/Shop Create"+ChatColor.DARK_AQUA+" if you haven't created a shop");
                                                             return true;
                                                         }else if(args[3].equalsIgnoreCase("Price")){
                                                             //check nearest shop
@@ -478,16 +478,16 @@ public class KumandraCommand implements CommandExecutor {
                                                                             plugin.getShopDataHandler().setPrice(player,shop);
                                                                         }else{
                                                                             player.sendMessage(ChatColor.DARK_AQUA+"Shop doesn't have a cloned UI");
-                                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/kumandra Shop Modify ShopUI clone"+ChatColor.DARK_AQUA+" if you haven't created a shop");
+                                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/Shop Modify ShopUI clone"+ChatColor.DARK_AQUA+" if you haven't created a shop");
                                                                         }
                                                                         return true;
                                                                     }
                                                             player.sendMessage(ChatColor.DARK_AQUA+"You must be 2 blocks near a shop to use this command");
-                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/kumandra Shop Create"+ChatColor.DARK_AQUA+" if you haven't created a shop");
+                                                            player.sendMessage(ChatColor.DARK_AQUA+"Do "+ChatColor.GREEN+"/Shop Create"+ChatColor.DARK_AQUA+" if you haven't created a shop");
                                                             return true;
                                                         }
                                                     }else{
-                                                        player.sendMessage(ChatColor.DARK_GREEN+"To modify the shop UI, you must first create a prototype shop using a "+ChatColor.YELLOW+"chest/double "+ChatColor.DARK_GREEN+"chest. Once you're done, go to near the shop you want to modify the UI and type"+ChatColor.DARK_AQUA+" /kumandra shops modify ShopUI clone");
+                                                        player.sendMessage(ChatColor.DARK_GREEN+"To modify the shop UI, you must first create a prototype shop using a "+ChatColor.YELLOW+"chest/double "+ChatColor.DARK_GREEN+"chest. Once you're done, go to near the shop you want to modify the UI and type"+ChatColor.DARK_AQUA+" /shops modify ShopUI clone");
                                                         return true;
                                                     }
                                                 }else{
