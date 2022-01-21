@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.CommandExecutor;
+package me.jaymar921.economy.CommandExecutor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class KumandraTabbing implements TabCompleter {
+public class Tabbing implements TabCompleter {
 
     List<String> arguments = new ArrayList<>();
 
@@ -29,25 +29,25 @@ public class KumandraTabbing implements TabCompleter {
              for(String args1: arguments) {
                  if(args1.toLowerCase().startsWith(args[0].toLowerCase())) {
                      if (args1.equalsIgnoreCase("Balance"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.balance"))
+                         if (!sender.hasPermission("economy.balance"))
                              continue;
                      if (args1.equalsIgnoreCase("Economy"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.economy"))
+                         if (!sender.hasPermission("economy.economy"))
                              continue;
                      if (args1.equalsIgnoreCase("Pay"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.pay"))
+                         if (!sender.hasPermission("economy.pay"))
                              continue;
                      if (args1.equalsIgnoreCase("Trade"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.trade"))
+                         if (!sender.hasPermission("economy.trade"))
                              continue;
                      if (args1.equalsIgnoreCase("Deliver"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.deliver"))
+                         if (!sender.hasPermission("economy.deliver"))
                              continue;
                      if (args1.equalsIgnoreCase("Shops"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.shop"))
+                         if (!sender.hasPermission("economy.shop"))
                              continue;
                      if (args1.equalsIgnoreCase("Jobs"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.job"))
+                         if (!sender.hasPermission("economy.job"))
                              continue;
                      result.add(args1);
                  }
@@ -112,13 +112,13 @@ public class KumandraTabbing implements TabCompleter {
                 for(String args1 : shopCommands())
                     if(args1.toLowerCase().startsWith(args[1].toLowerCase())) {
                         if (args1.contains("Create"))
-                            if (!sender.hasPermission("kumandraseconomy.kumandra.shopAdmin"))
+                            if (!sender.hasPermission("economy.shopAdmin"))
                                 continue;
                         if (args1.contains("Modify"))
-                            if (!sender.hasPermission("kumandraseconomy.kumandra.shopAdmin"))
+                            if (!sender.hasPermission("economy.shopAdmin"))
                                 continue;
                         if (args1.contains("Delete"))
-                            if (!sender.hasPermission("kumandraseconomy.kumandra.shopAdmin"))
+                            if (!sender.hasPermission("economy.shopAdmin"))
                                 continue;
                         result.add(args1);
                     }
@@ -172,3 +172,5 @@ public class KumandraTabbing implements TabCompleter {
     }
     
 }
+
+
