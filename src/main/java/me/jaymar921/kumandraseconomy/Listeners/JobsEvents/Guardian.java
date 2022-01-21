@@ -1,53 +1,75 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
+import me.jaymar921.conomy.InventoryGUI.enums.JobList;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.PlayerStatus;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.player.PlayerFishEvent;
+import org.bukkit.inventory.ItemStack;
 
-public class Guardian extends Jobs implements Listener {
+public class Fisherman extends Jobs implements Listener {
 
-    public Guardian(KumandrasEconomy main){
+    public Fisherman(conomy main){
         super(main);
     }
 
     @EventHandler
-    private void attackingHostileMobsGUARDIAN(EntityDeathEvent event){
-        //make sure player is the attacker
-        if(event.getEntity().getKiller() == null)
+    private void FishingEvent(PlayerFishEvent event){
+        Player player = event.getPlayer();
+        PlayerStatus playerStatus = main.getDataHandler().getStatusHolder().get(player.getUniqueId().toString());
+        if(!playerStatus.getJobs().contains(JobList.FISHERMAN.toString()))
             return;
-        Player killer = event.getEntity().getKiller();
-        //check if player has the job
-        PlayerStatus playerStatus = main.getDataHandler().getStatusHolder().get(killer.getUniqueId().toString());
-        if(!playerStatus.getJobs().contains(JobList.GUARDIAN.toString()))
-            return;
-        //get the attacked entity
-        Entity attackedEntity = event.getEntity();
-        //check if villager is in location
-        checkVillagerRadius(killer);
+        if(event.getState().equals(PlayerFishEvent.State.CAUGHT_FISH))
+        if(event.getCaught() instanceof Item){
+            Item item_entity = (Item)event.getCaught();
+            ItemStack item = item_entity.getItemStack();
 
-        if(!villagerInRadius.contains(killer))
-            return;
-
-        if(mob.isHostile(attackedEntity)){
-            double balance = playerStatus.getBalance();
-            double income = main.getRegistryConfiguration().guardian;
-            playerStatus.setBalance(balance+income);
-            addPlayer(killer, income);
-        }
-    }
-
-    private void checkVillagerRadius(Player player){
-        for(Entity entities : player.getWorld().getNearbyEntities(player.getLocation(), main.getRegistryConfiguration().villagerRadius, 10, main.getRegistryConfiguration().villagerRadius)){
-            if(entities.getType().equals(EntityType.VILLAGER)) {
-                playerInVillagerRadius(player);
-                return;
+            if(isFish(item.getType())){
+                double balance = playerStatus.getBalance();
+                double income = main.getRegistryConfiguration().fisherman;
+                playerStatus.setBalance(balance+income);
+                addPlayer(event.getPlayer(), income);
+            }else if(isTreasure(item.getType())){
+                double balance = playerStatus.getBalance();
+                double income = main.getRegistryConfiguration().luckyFisherman;
+                playerStatus.setBalance(balance+income);
+                addPlayer(event.getPlayer(), income);
             }
         }
     }
+
+
+
+
+    private boolean isTreasure(Material material){
+        if(material.equals(Material.BOW))
+            return true;
+        else if(material.equals(Material.ENCHANTED_BOOK))
+            return true;
+        else if(material.equals(Material.FISHING_ROD))
+            return true;
+        else if(material.equals(Material.NAME_TAG))
+            return true;
+        else if(material.equals(Material.NAUTILUS_SHELL))
+            return true;
+        else return material.equals(Material.SADDLE);
+    }
+
+    private boolean isFish(Material material){
+        if(material.equals(Material.COD))
+            return true;
+        else if(material.equals(Material.SALMON))
+            return true;
+        else if(material.equals(Material.PUFFERFISH))
+            return true;
+        else return material.equals(Material.TROPICAL_FISH);
+    }
 }
+
+
+
