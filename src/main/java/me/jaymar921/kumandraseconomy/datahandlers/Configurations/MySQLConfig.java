@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.datahandlers.Configurations;
+package me.jaymar921.economy.datahandlers.Configurations;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -11,11 +11,11 @@ import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 public class MySQLConfig {
-    private final KumandrasEconomy plugin;
+    private final Economy plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
 
-    public MySQLConfig(KumandrasEconomy plugin) {
+    public MySQLConfig(Economy plugin) {
         this.plugin = plugin;
         //save / initialize the config
         saveDefaultConfig();
@@ -61,3 +61,5 @@ public class MySQLConfig {
         }
     }
 }
+
+
