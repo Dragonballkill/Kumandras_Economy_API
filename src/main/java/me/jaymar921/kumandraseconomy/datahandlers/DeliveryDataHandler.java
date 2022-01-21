@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
 public class DeliveryDataHandler {
 
@@ -55,3 +55,5 @@ public class DeliveryDataHandler {
         this.regular_delivery_price = regular_delivery_price;
     }
 }
+
+
