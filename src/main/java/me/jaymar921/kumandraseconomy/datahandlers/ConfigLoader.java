@@ -1,11 +1,11 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.Version.UpdateChecker;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.DataConfigUpdater;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LangConfig.TurkishConfig;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LanguageConfig;
-import me.jaymar921.kumandraseconomy.utility.TranslateParser;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.Version.UpdateChecker;
+import me.jaymar921.economy.datahandlers.Configurations.DataConfigUpdater;
+import me.jaymar921.economy.datahandlers.Configurations.LangConfig.TurkishConfig;
+import me.jaymar921.economy.datahandlers.Configurations.LanguageConfig;
+import me.jaymar921.economy.utility.TranslateParser;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
@@ -13,9 +13,9 @@ import java.util.*;
 
 public class ConfigLoader {
 
-    static KumandrasEconomy plugin;
+    static Economy plugin;
     RegistryConfiguration registryConfiguration;
-    public ConfigLoader(KumandrasEconomy main){
+    public ConfigLoader(Economy main){
         plugin = main;
         loadLanguage();
         LoadConfiguration();
@@ -207,14 +207,14 @@ public class ConfigLoader {
     private void checkForUpdate(){
         new UpdateChecker(plugin, 96466).getVersion(version -> {
             if (plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
-                plugin.getLogger().info("\u001B[33m----------[Kumandra's Economy]----------");
+                plugin.getLogger().info("\u001B[33m----------[ Economy]----------");
                 plugin.getLogger().info("\u001B[32mYou installed the latest version. [\u001B[36m"+version+"\u001B[32m]");
                 plugin.getLogger().info("\u001B[32mInfo at: \u001B[34m"+plugin.getDescription().getWebsite());
                 plugin.getLogger().info("\u001B[32mSupport the developer :)");
                 plugin.getLogger().info("\u001B[32mYoutube: \u001B[34mhttps://www.youtube.com/c/jaymar921/");
                 plugin.getLogger().info("\u001B[33m-----------------------------------------"+"\u001B[35m");
             } else {
-                plugin.getLogger().info("\u001B[35m----------[Kumandra's Economy]----------");
+                plugin.getLogger().info("\u001B[35m----------[ Economy]----------");
                 plugin.getLogger().info("\u001B[35mYou are currently using [\u001B[31m"+plugin.getDescription().getVersion()+"\u001B[35m]");
                 plugin.getLogger().info("\u001B[35mThere's a new update available [\u001B[31m"+version+"\u001B[35m]");
                 plugin.getLogger().info("\u001B[35mLink: \u001B[32m"+plugin.getDescription().getWebsite());
@@ -283,3 +283,5 @@ public class ConfigLoader {
 
 
 }
+
+
