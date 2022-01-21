@@ -1,8 +1,8 @@
-package me.jaymar921.kumandraseconomy.Listeners.JobsEvents;
+package me.jaymar921.conomy.Listeners.JobsEvents;
 
-import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
+import me.jaymar921.conomy.InventoryGUI.enums.JobList;
+import me.jaymar921.conomy.conomy;
+import me.jaymar921.conomy.economy.PlayerStatus;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.entity.Player;
@@ -14,7 +14,7 @@ import org.bukkit.event.entity.EntityBreedEvent;
 
 public class Farmer extends Jobs implements Listener {
 
-    public Farmer(KumandrasEconomy main){
+    public Farmer(conomy main){
         super(main);
     }
 
@@ -61,3 +61,6 @@ public class Farmer extends Jobs implements Listener {
         return ageable.getAge() == ageable.getMaximumAge();
     }
 }
+
+
+
