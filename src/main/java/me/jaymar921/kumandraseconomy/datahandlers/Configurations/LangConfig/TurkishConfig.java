@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.datahandlers.Configurations.LangConfig;
+package me.jaymar921.economy.datahandlers.Configurations.LangConfig;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -11,11 +11,11 @@ import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 public class TurkishConfig {
-    private KumandrasEconomy plugin;
+    private Economy plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
 
-    public TurkishConfig(KumandrasEconomy plugin) {
+    public TurkishConfig(Economy plugin) {
         this.plugin = plugin;
         //save / initialize the config
         saveDefaultConfig();
@@ -61,3 +61,5 @@ public class TurkishConfig {
         }
     }
 }
+
+
