@@ -1,6 +1,6 @@
-package me.jaymar921.kumandraseconomy.Version;
+package me.jaymar921.economy.Version;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import me.jaymar921.economy.Economy;
 import org.bukkit.ChatColor;
 
 public class VersionChecker {
@@ -24,7 +24,7 @@ public class VersionChecker {
 		
 		
 		if(!support_1_17)
-			KumandrasEconomy.getPlugin(KumandrasEconomy.class).getLogger().info(ChatColor.GREEN+"Supports 1.17");
+			Economy.getPlugin(Economy.class).getLogger().info(ChatColor.GREEN+"Supports 1.17");
 	}
 	
 	
@@ -35,3 +35,6 @@ public class VersionChecker {
 	
 
 }
+
+
+
