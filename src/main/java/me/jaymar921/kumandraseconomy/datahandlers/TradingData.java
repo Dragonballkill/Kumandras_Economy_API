@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
 import org.bukkit.entity.Player;
 
@@ -35,3 +35,5 @@ public class TradingData {
     }
 
 }
+
+
