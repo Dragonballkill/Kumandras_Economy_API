@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.CommandExecutor;
+package me.jaymar921.seconomy.CommandExecutor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -27,3 +27,6 @@ public class TradeTabbing implements TabCompleter {
         return result;
     }
 }
+
+
+
