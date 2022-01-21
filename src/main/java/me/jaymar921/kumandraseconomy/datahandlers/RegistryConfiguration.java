@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
 import org.bukkit.Material;
 
@@ -40,3 +40,5 @@ public class RegistryConfiguration {
 
     public boolean QuestAllowed = true;
 }
+
+
