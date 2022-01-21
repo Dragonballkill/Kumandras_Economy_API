@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.InventoryGUI.enums;
+package me.jaymar921.economy.InventoryGUI.enums;
 
 public enum JobList {
 
