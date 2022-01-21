@@ -1,7 +1,7 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.economy.datahandlers;
 
-import me.jaymar921.kumandraseconomy.KumandrasEconomy;
-import me.jaymar921.kumandraseconomy.datahandlers.Configurations.ShopConfiguration;
+import me.jaymar921.economy.Economy;
+import me.jaymar921.economy.datahandlers.Configurations.ShopConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -30,9 +30,9 @@ public class ShopDataHandler {
     Map<Player, String> settingPriceSessionShop;
 
     ShopConfiguration configuration;
-    KumandrasEconomy main;
+    Economy main;
 
-    public ShopDataHandler(KumandrasEconomy main){
+    public ShopDataHandler(Economy main){
         this.main = main;
 
         shopLocation = new HashMap<>();
@@ -192,3 +192,5 @@ public class ShopDataHandler {
         return chat;
     }
 }
+
+
